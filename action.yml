@@ -1,0 +1,18 @@
+name: 'Close and Release Nexus Staged Repo'
+description: 'Closes and releases a staged repo, with a given ID, on https://oss.sonatype.org/.'
+inputs:
+  username: 
+    description: 'Your Sonatype username, same the Sonatype Jira one.'
+    required: true
+  password: 
+    description: 'Your Sonatype password, same the Sonatype Jira one.'
+    required: true
+  staging-repository-id: 
+    description: 'The ID of the staged repository to close and release.'
+    required: true
+  base-url: 
+    description: 'The url of your nexus repository, defaults to OSSRH (https://oss.sonatype.org/service/local/)'
+    defaults: https://oss.sonatype.org/service/local/
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
