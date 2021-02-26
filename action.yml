@@ -12,7 +12,7 @@ inputs:
     required: true
   base_url: 
     description: 'The url of your nexus repository, defaults to OSSRH (https://oss.sonatype.org/service/local/)'
-    defaults: https://oss.sonatype.org/service/local/
+    default: 'https://oss.sonatype.org/service/local/'
 runs:
   using: 'docker'
   image: 'Dockerfile'
