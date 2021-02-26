@@ -6,11 +6,11 @@ closingRepository=$(
     --url ${INPUT_BASE_URL}staging/bulk/close \
     --header 'Accept: application/json' \
     --header 'Content-Type: application/json' \
-    --data '{ "data" : {"stagedRepositoryIds":["'"$INPUT_STAGED_REPOSITORY_ID"'"], "description":"Close '"$INPUT_STAGED_REPOSITORY_ID"'." } }'
+    --data '{ "data" : {"stagedRepositoryIds":["'"$INPUT_STAGING_REPOSITORY_ID"'"], "description":"Close '"$INPUT_STAGING_REPOSITORY_ID"'." } }'
 )
 
 if [ ! -z "$closingRepository" ]; then
-    echo "Error while closing repository $INPUT_STAGED_REPOSITORY_ID : $closingRepository."
+    echo "Error while closing repository $INPUT_STAGING_REPOSITORY_ID : $closingRepository."
     exit 1
 fi
 
@@ -24,7 +24,7 @@ while true ; do
   fi
 
   rules=$(curl -s --request GET -u "$INPUT_USERNAME:$INPUT_PASSWORD" \
-        --url ${INPUT_BASE_URL}staging/repository/"$INPUT_STAGED_REPOSITORY_ID"/activity \
+        --url ${INPUT_BASE_URL}staging/repository/"$INPUT_STAGING_REPOSITORY_ID"/activity \
         --header 'Accept: application/json' \
         --header 'Content-Type: application/json')
 
@@ -37,7 +37,7 @@ while true ; do
   rulesFailed=$(echo "$closingRules" | jq '.events | any(.name=="rulesFailed")')
 
   if [ "$rulesFailed" = "true" ]; then
-    echo "Staged repository [$INPUT_STAGED_REPOSITORY_ID] could not be closed."
+    echo "Staged repository [$INPUT_STAGING_REPOSITORY_ID] could not be closed."
     exit 1
   fi
 
@@ -58,7 +58,7 @@ while true ; do
   fi
 
   repository=$(curl -s --request GET -u "$INPUT_USERNAME:$INPUT_PASSWORD" \
-    --url ${INPUT_BASE_URL}staging/repository/"$INPUT_STAGED_REPOSITORY_ID" \
+    --url ${INPUT_BASE_URL}staging/repository/"$INPUT_STAGING_REPOSITORY_ID" \
     --header 'Accept: application/json' \
     --header 'Content-Type: application/json')
 
@@ -75,9 +75,9 @@ release=$(curl -s --request POST -u "$INPUT_USERNAME:$INPUT_PASSWORD" \
   --url ${INPUT_BASE_URL}staging/bulk/promote \
   --header 'Accept: application/json' \
   --header 'Content-Type: application/json' \
-  --data '{ "data" : {"stagedRepositoryIds":["'"$INPUT_STAGED_REPOSITORY_ID"'"], "autoDropAfterRelease" : true, "description":"Release '"$INPUT_STAGED_REPOSITORY_ID"'." } }')
+  --data '{ "data" : {"stagedRepositoryIds":["'"$INPUT_STAGING_REPOSITORY_ID"'"], "autoDropAfterRelease" : true, "description":"Release '"$INPUT_STAGING_REPOSITORY_ID"'." } }')
 
 if [ ! -z "$release" ]; then
-    echo "Error while releasing $INPUT_STAGED_REPOSITORY_ID : $release."
+    echo "Error while releasing $INPUT_STAGING_REPOSITORY_ID : $release."
     exit 1
 fi

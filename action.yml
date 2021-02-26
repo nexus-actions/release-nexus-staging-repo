@@ -7,7 +7,7 @@ inputs:
   password: 
     description: 'Your Sonatype password, same the Sonatype Jira one.'
     required: true
-  staged_repository_id: 
+  staging_repository_id: 
     description: 'The ID of the staged repository to close and release.'
     required: true
   base_url: 
