@@ -7,10 +7,10 @@ inputs:
   password: 
     description: 'Your Sonatype password, same the Sonatype Jira one.'
     required: true
-  staging-repository-id: 
+  staging_repository_id: 
     description: 'The ID of the staged repository to close and release.'
     required: true
-  base-url: 
+  base_url: 
     description: 'The url of your nexus repository, defaults to OSSRH (https://oss.sonatype.org/service/local/)'
     defaults: https://oss.sonatype.org/service/local/
 runs:

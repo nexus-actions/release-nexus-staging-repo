@@ -1,11 +1,6 @@
 #!/bin/sh -l
 # inspired by https://gist.github.com/romainbsl/0d0bb2149ce7f34246ec6ab0733a07f1
 
-if [ -z $INPUT_BASE_URL ]
-then
-  INPUT_BASE_URL="https://oss.sonatype.org/service/local/"
-fi
-
 closingRepository=$(
   curl -s --request POST -u "$INPUT_USERNAME:$INPUT_PASSWORD" \
     --url ${INPUT_BASE_URL}staging/bulk/close \
