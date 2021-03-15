@@ -14,6 +14,11 @@ if [ ! -z "$closingRepository" ]; then
     exit 1
 fi
 
+if [ "$INPUT_CLOSE_ONLY" = "true" ]; then
+    echo "Do not auto-release repository $INPUT_STAGING_REPOSITORY_ID. This can be done manually on https://oss.sonatype.org/."
+    exit 0
+fi
+
 start=$(date +%s)
 while true ; do
   # force timeout after 15 minutes
