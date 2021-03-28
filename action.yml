@@ -14,7 +14,7 @@ inputs:
     description: 'The url of your nexus repository, defaults to OSSRH (https://oss.sonatype.org/service/local/)'
     default: 'https://oss.sonatype.org/service/local/'
   close_only: 
-    description: 'This option disable the auto-release process, you'll have to do it manually on https://oss.sonatype.org/.'
+    description: 'This option disable the auto-release process, you will have to do it manually on https://oss.sonatype.org/.'
     default: 'false'
 runs:
   using: 'docker'
