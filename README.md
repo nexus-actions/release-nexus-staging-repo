@@ -33,7 +33,7 @@ The different arguments are:
 
 - `username`: Your Sonatype username, same the Sonatype Jira one
 - `password`: Your Sonatype password, same the Sonatype Jira one
-- `staged_repository_id`: The ID of the staged repository to drop.
+- `staging_repository_id`: The ID of the staged repository to drop.
 - `base_url`: The url of your nexus repository, default to OSSRH (https://oss.sonatype.org/service/local/)
 - `close_only`: This option disable the auto-release process, default is `'false'`
 
