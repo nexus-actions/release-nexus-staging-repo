@@ -6,7 +6,7 @@ closingRepository=$(
     --url ${INPUT_BASE_URL}staging/bulk/close \
     --header 'Accept: application/json' \
     --header 'Content-Type: application/json' \
-    --data '{ "data" : {"stagedRepositoryIds":["'"$INPUT_STAGING_REPOSITORY_ID"'"], "description":"Close '"$INPUT_STAGING_REPOSITORY_ID"'." } }'
+    --data '{ "data" : {"stagedRepositoryIds":["'"$INPUT_STAGING_REPOSITORY_ID"'"], "description":"'"$INPUT_DESCRIPTION"'" } }'
 )
 
 if [ ! -z "$closingRepository" ]; then

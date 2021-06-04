@@ -26,6 +26,7 @@ jobs:
           username: ${{ secrets.SONATYPE_USERNAME }}
           password: ${{ secrets.SONATYPE_PASSWORD }}
           staging_repository_id: ${{ needs.create_staging_repository.outputs.repository-id }}
+          [description]: Closed ${{ github.repository }}#${{ github.run_number }}
           [close_only]: 'true'
 ```
 
@@ -34,6 +35,7 @@ The different arguments are:
 - `username`: Your Sonatype username, same the Sonatype Jira one
 - `password`: Your Sonatype password, same the Sonatype Jira one
 - `staging_repository_id`: The ID of the staged repository to drop.
+- `description`: The description to use for the closed repository.  Defaults to `"Closed by Github Actions"`.
 - `base_url`: The url of your nexus repository, default to OSSRH (https://oss.sonatype.org/service/local/)
 - `close_only`: This option disable the auto-release process, default is `'false'`
 
