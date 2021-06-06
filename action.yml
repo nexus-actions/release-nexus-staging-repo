@@ -10,12 +10,18 @@ inputs:
   staging_repository_id: 
     description: 'The ID of the staged repository to close and release.'
     required: true
+  description:
+    description: 'The description to use for the closed repository'
+    default: "Closed by Github Actions"
+    required: false
   base_url: 
     description: 'The url of your nexus repository, defaults to OSSRH (https://oss.sonatype.org/service/local/)'
     default: 'https://oss.sonatype.org/service/local/'
+    required: false
   close_only: 
     description: 'This option disable the auto-release process, you will have to do it manually on https://oss.sonatype.org/.'
     default: 'false'
+    required: false
 runs:
   using: 'docker'
   image: 'Dockerfile'
