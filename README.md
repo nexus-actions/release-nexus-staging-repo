@@ -21,7 +21,8 @@ jobs:
     if: ${{ always() && needs.build.result == 'success' }}
     steps:
       - name: Release
-        uses: nexus-actions/release-nexus-staging-repo@main
+        # replace '@main' with the latest commit sha, see https://docs.github.com/en/actions/security-guides/security-hardening-for-github-actions#using-third-party-actions
+        uses: nexus-actions/release-nexus-staging-repo@main 
         with:
           username: ${{ secrets.SONATYPE_USERNAME }}
           password: ${{ secrets.SONATYPE_PASSWORD }}
