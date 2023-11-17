@@ -1,0 +1,13 @@
+inputs:
+  username:
+    type: string
+  password:
+    type: string
+  staging_repository_id: 
+    type: string
+  description:
+    type: string
+  base_url: 
+    type: string
+  close_only: 
+    type: boolean
