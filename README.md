@@ -1,3 +1,5 @@
+Deprecated & archived due to [OSSRH sunset](https://central.sonatype.org/news/20250326_ossrh_sunset/) (June 2025)
+
 # release-nexus-staging-repo Github Action
 
 This action closes an existing staged repository, and if the sonatype process ends by closing the staged repository properly it will release the artifacts on Maven Central.
